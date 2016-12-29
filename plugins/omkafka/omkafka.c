@@ -461,6 +461,8 @@ writeDataError(instanceData *const pData,
 	json_object_object_add(json, "errcode", jval);
 	jval = json_object_new_string(rd_kafka_err2str(kafkaErr));
 	json_object_object_add(json, "errmsg", jval);
+	jval = json_object_new_string(pData->topic);
+	json_object_object_add(json, "topic", jval);
 	jval = json_object_new_string_len(data, lenData);
 	json_object_object_add(json, "data", jval);
 
